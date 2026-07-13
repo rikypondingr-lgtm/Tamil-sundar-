@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudar_Mehandi</title>
+    <!-- Google Fonts for elegant styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* --- CSS Reset & Variables --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-pink: #fdf5f6;
+            --accent-rose: #c38b94;
+            --accent-rose-hover: #b07780;
+            --text-dark: #4a3e3f;
+            --text-muted: #7a6e6f;
+            --white: #ffffff;
+            --font-script: 'Great Vibes', cursive;
+            --font-serif: 'Cinzel', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Global Reusable Styles --- */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+        .section-title {
+            font-family: var(--font-script);
+            font-size: 3.5rem;
+            color: var(--accent-rose);
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-rose);
+            color: var(--white);
+            padding: 10px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--accent-rose-hover);
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--primary-pink);
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+        }
+        .logo {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(253, 245, 246, 0.8), rgba(253, 245, 246, 0.6)), url('img1.png') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+        .hero .subtitle {
+            font-family: var(--font-script);
+            font-size: 3rem;
+            color: var(--accent-rose);
+            margin-bottom: 30px;
+        }
+
+        /* --- Services Section --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 15px;
+        }
+        .service-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .service-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+
+        /* --- About Us Section --- */
+        .about-section {
+            background-color: var(--primary-pink);
+            text-align: center;
+            position: relative;
+        }
+        .about-content {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* --- Why Choose Us --- */
+        .why-us-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .why-us-item {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e8d5d7;
+            position: relative;
+        }
+        .why-us-item::before {
+            content: '🌸';
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-rose);
+        }
+        .why-us-item:last-child {
+            border-bottom: none;
+        }
+
+        /* --- Gallery / Videos --- */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .media-item video, .media-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* --- Testimonials --- */
+        .testimonials {
+            background-color: var(--primary-pink);
+            text-align: center;
+        }
+        .testimonial-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border-radius: 8px;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .testimonial-card h4 {
+            font-family: var(--font-serif);
+            color: var(--accent-rose);
+        }
+
+        /* --- Contact & Footer Form --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--accent-rose);
+        }
+        .info-pane h3 {
+            font-family: var(--font-serif);
+            margin-bottom: 15px;
+        }
+        .info-pane p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .map-container {
+            grid-column: span 2;
+            width: 100%;
+            height: 300px;
+            margin-top: 30px;
+            background: #eee;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        footer {
+            background: var(--accent-rose);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.85rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .map-container {
+                grid-column: span 1;
+            }
+            .hero h1 { font-size: 2rem; }
+            .hero .subtitle { font-size: 2.2rem; }
+            .section-title { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">Sudar_Mehandi</div>
+        <div class="menu-icon">☰</div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>Custom Henna Design</h1>
+        <div class="subtitle">for your big day</div>
+        <a href="#contact" class="btn">Book Now</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="container">
+        <h2 class="section-title">Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="img2.png" alt="Bridal Henna" class="service-img">
+                <h3>Bridal Henna</h3>
+                <p>Intricate and traditional full-hand designs curated specially to celebrate your beautiful love story.</p>
+                <a href="#" class="btn">View Tier</a>
+            </div>
+            <div class="service-card">
+                <img src="img3.png" alt="Guest Henna" class="service-img">
+                <h3>Henna Parties</h3>
+                <p>Elegant, fast, and gorgeous patterns suited perfectly for your bridesmaids, family, and celebration guests.</p>
+                <a href="#" class="btn">View Tier</a>
+            </div>
+            <div class="service-card">
+                <img src="img4.png" alt="Engagement Henna" class="service-img">
+                <h3>Engagement</h3>
+                <p>Minimalist modern patterns or semi-intricate traditional elements matching your elegant styling look.</p>
+                <a href="#" class="btn">View Tier</a>
+            </div>
+          
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <p>Welcome to our creative sanctuary where tradition seamlessly meets modern elegance. We specialize in producing custom, handcrafted organic henna application designs for weddings, celebrations, and intimate events. Our mission is to ensure every curve and intricate line delivers an unforgettable stain experience while leaving a lasting memory of your magical milestones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="container">
+        <h2 class="section-title">Why Us</h2>
+        <div class="why-us-list">
+            <div class="why-us-item">
+                <p>We exclusively use 100% natural, freshly prepared organic henna paste, guaranteeing safe application alongside rich, dark, lasting color output.</p>
+            </div>
+            <div class="why-us-item">
+                <p>Every pattern is bespoke and custom tailored to fit your specific vision, aesthetic wardrobe elements, and personal background story.</p>
+            </div>
+            <div class="why-us-item">
+                <p>Years of professional experience serving diverse traditions guarantees timely delivery and exceptionally clean layout line work execution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Media Grid Section -->
+    <section class="container">
+        <h2 class="section-title">Gallery</h2>
+        <div class="media-grid">
+            <div class="media-item">
+                <img src="img5.png" alt="Gallery image">
+            </div>
+            <!-- Video Mockups mimicking the video players shown on the screen -->
+            <div class="media-item">
+                <video autoplay muted>
+                    <source src="vid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="media-item">
+                <video autoplay muted>
+                    <source src="vid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Reviews</h2>
+            <div class="testimonial-card">
+                <p>"The design work was absolutely stunning, and the dark mahogany color payoff surpassed all my expectations! Truly made my wedding weekend extra magical."</p>
+                <h4>-Tamil Sudar.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Details Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <!-- Form Block -->
+            <form class="contact-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number">
+                <input type="date" placeholder="Date">
+                <textarea rows="5" placeholder="Your Message / Booking Details" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+            <!-- Info Block -->
+            <div class="info-pane">
+                <h3>Contact Info</h3>
+                <p><strong>Email:stamsen3@gmail.com</strong></p>
+                
+            
+<div class="social-icons">
+    <a href="https://www.instagram.com/sudar_mehandi_collection_22?utm_source=qr&igsh=MXh0bHl3ZjQyNzMxcw==" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+
+            <!-- Integrated Map Block Placeholder -->
+            <div class="map-container">
+                <!-- Swappable with a real Google Maps embed code -->
+                <iframe src="https://maps.google.com/maps?q=Coimbatore&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Footer -->
+    <footer>
+        <p>&copy; 2026 Henna Creations. All Rights Reserved.</p>
+    </footer>
+        <script type="module" src="js.js"></script>
+</body>
+</html>
