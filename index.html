@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Optional Bootstrap (for your classes) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+ 
+<title>Idhal Balloons</title>
+<link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="logo.png" alt="Idhal Balloons Logo">
+  </div>
+ 
+
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="booking.html">Booking</a>
+  </nav>
+</header>
+ 
+ <!-- Scroll Popup -->
+<div id="scrollPopup" class="scroll-popup" onclick="window.scrollBy({top: window.innerHeight, behavior: 'smooth'})">
+  👇 Scroll
+</div>
+ 
+<section class="hero">
+ <h1>Make your party livelier 🎈</h1>
+</section>
+ <br>
+<div class="img">
+ <section class="box">
+  <h1>Birthday</h1>
+  <p>Colorful and fun themes designed for memorable birthday celebrations.</p>
+  <button class="next-btn" onclick="scrollToNext()">⬇</button>
+</section>
+</div>
+ <br>
+<section class="box" class="show">
+  <h1>Wedding</h1>
+  <p>
+    Elegant decorations that add romance and charm to your wedding day.
+  </p>
+</section>
+ <br>
+ <section class="box" class="show">
+  <h1>Baby Shower</h1>
+  <p>Soft and beautiful decorations to celebrate new beginnings.</p>
+ </section>
+<div class="social">
+  <a href="https://www.instagram.com/h4ck3r_ricky_?igsh=MXJ3YjRycWhnb25nNw=="><i class="fab fa-instagram"></i></a>
+  <a href="https://www.facebook.com/share/1GUYeR7BBY/"><i class="fab fa-facebook-f"></i></a>
+  <a href="rikypondingr@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+  <a href="https://wa.me/qr/XFXZB2LQC2JME1"><i class="fab fa-whatsapp"></i></a>
+</div>
+<div class="center">
+  <a href="booking.html" class="btn">Book Now</a>
+</div>
+ <script>
+const popup = document.getElementById("scrollPopup");
+
+// Scroll popup logic
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    popup.classList.add("hide");
+  } else {
+    popup.classList.remove("hide");
+  }
+});
+
+// Fix: check if elements exist before using
+const fileInput = document.getElementById("fileInput");
+const previewImg = document.getElementById("previewImg");
+
+if (fileInput && previewImg) {
+  fileInput.addEventListener("change", function() {
+    const file = this.files[0];
+    if (file) {
+      previewImg.style.display = "block";
+      previewImg.src = URL.createObjectURL(file);
+    }
+  });
+}
+ 
+const fileInput = document.getElementById("fileInput");
+const previewImg = document.getElementById("previewImg");
+
+fileInput.addEventListener("change", function() {
+  const file = this.files[0];
+  if (file) {
+    previewImg.style.display = "block";
+    previewImg.src = URL.createObjectURL(file);
+   
+  }
+});
+
+function scrollToNext() {
+  window.scrollBy({
+    top: window.innerHeight,
+    behavior: "smooth"
+  });
+}
+
+</script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
